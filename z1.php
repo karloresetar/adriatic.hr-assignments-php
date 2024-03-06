@@ -29,6 +29,10 @@ $number2 = 100;
 $number3 = -101;
 $number4 = 7;
 
+echo "ARRAY: [";
+echo implode(", ", $options);
+echo "]<br><br>";
+
 echo "Najblizi broj broju $number1: " . implode(", ", getClosestNumbers($options, $number1)) . "</br>";
 echo "Najblizi broj broju $number2: " . implode(", ", getClosestNumbers($options, $number2)) . "</br>";
 echo "Najblizi broj broju $number3: " . implode(", ", getClosestNumbers($options, $number3)) . "</br>";

@@ -1,12 +1,12 @@
 <?php
 
-function fetchPasswordFromAPI()
+function fetchPassword()
 {
     $response = file_get_contents('https://api.adriatic.hr/test/it?user=620');
     return $response;
 }
 
-$password = fetchPasswordFromAPI();
+$password = fetchPassword();
 
 
 $url = "https://api.adriatic.hr/test/it?user=620&pass=" . urlencode($password);
@@ -32,6 +32,6 @@ curl_close($ch);
 
 file_put_contents('z4.odt', $response);
 
-echo "Response saved to z4.odt";
+echo "Odt file spremljen u z4.odt";
 
 ?>

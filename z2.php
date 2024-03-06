@@ -24,6 +24,18 @@ $arrayA = ['a','b','c','dd','234','22','rc'];
 $arrayB = ['a','b2','c','dad','rc','24','222'];
 $arrayC = ['222','a','be','rc','dd','234','22','pp'];
 
+echo "ARRAY A: [";
+echo implode(", ", $arrayA);
+echo "]<br><br>";
+
+echo "ARRAY B: [";
+echo implode(", ", $arrayB);
+echo "]<br><br>";
+
+echo "ARRAY C: [";
+echo implode(", ", $arrayC);
+echo "]<br><br>";
+
 find($arrayA, $arrayB, $arrayC);
 
 

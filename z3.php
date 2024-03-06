@@ -21,6 +21,46 @@ class Accommodation
         $this->currency = $currency;
         $this->quantity = $quantity;
     }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getStartDate()
+    {
+        return $this->startDate;
+    }
+
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    public function getNumPersons()
+    {
+        return $this->numPersons;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
 }
 
 class Payment
@@ -36,6 +76,26 @@ class Payment
         $this->paymentMethod = $paymentMethod;
         $this->paymentTime = $paymentTime;
         $this->amount = $amount;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getPaymentMethod()
+    {
+        return $this->paymentMethod;
+    }
+
+    public function getPaymentTime()
+    {
+        return $this->paymentTime;
+    }
+
+    public function getAmount()
+    {
+        return $this->amount;
     }
 }
 
@@ -103,7 +163,7 @@ $payment2 = new Payment("Ostatak iznosa", "Kreditnom karticom (Visa, EC/MC, Maes
 </head>
 
 <body>
-    <h2>PREDRAČUN BR. <?php echo $accommodation->startDate->format('Y') ?>-<?php echo $accommodation->id ?>-63 ZA USLUGU SMJEŠTAJA</h2>
+    <h2>PREDRAČUN BR. <?php echo $accommodation->getStartDate()->format('Y') ?>-<?php echo $accommodation->getId() ?>-63 ZA USLUGU SMJEŠTAJA</h2>
 
     <div class="table-container">
         <table>
@@ -114,12 +174,12 @@ $payment2 = new Payment("Ostatak iznosa", "Kreditnom karticom (Visa, EC/MC, Maes
                 <th class="left-border">Ukupno</th>
             </tr>
             <tr>
-                <td style="text-align: left; font-weight: bold;"><?php echo $accommodation->name ?></td>
-                <td><?php echo $accommodation->startDate->format('d.m.Y') ?> - <?php echo $accommodation->endDate->format('d.m.Y') ?></td>
-                <td><?php echo $accommodation->numPersons ?> (osobe)</td>
-                <td class="left-border" style="text-align: right;"><?php echo number_format($accommodation->price, 2, ',', '.') ?> <?php echo $accommodation->currency ?></td>
-                <td class="left-border"><?php echo $accommodation->quantity ?> (noćenja)</td>
-                <td class="left-border" style="text-align: right;"><?php echo number_format($accommodation->price * $accommodation->quantity, 2, ',', '.') ?> <?php echo $accommodation->currency ?></td>
+                <td style="text-align: left; font-weight: bold;"><?php echo $accommodation->getName() ?></td>
+                <td><?php echo $accommodation->getStartDate()->format('d.m.Y') ?> - <?php echo $accommodation->getEndDate()->format('d.m.Y') ?></td>
+                <td><?php echo $accommodation->getNumPersons() ?> (osobe)</td>
+                <td class="left-border" style="text-align: right;"><?php echo number_format($accommodation->getPrice(), 2, ',', '.') ?> <?php echo $accommodation->getCurrency() ?></td>
+                <td class="left-border"><?php echo $accommodation->getQuantity() ?> (noćenja)</td>
+                <td class="left-border" style="text-align: right;"><?php echo number_format($accommodation->getPrice() * $accommodation->getQuantity(), 2, ',', '.') ?> <?php echo $accommodation->getCurrency() ?></td>
 
             </tr>
             <tr>
@@ -127,7 +187,7 @@ $payment2 = new Payment("Ostatak iznosa", "Kreditnom karticom (Visa, EC/MC, Maes
             </tr>
             <tr class="last-column">
                 <td colspan="5" style="text-align: left;">Ukupno</td>
-                <td class="left-border" style="text-align: right;"><?php echo number_format($accommodation->price * $accommodation->quantity, 2, ',', '.') ?> <?php echo $accommodation->currency ?></td>
+                <td class="left-border" style="text-align: right;"><?php echo number_format($accommodation->getPrice() * $accommodation->getQuantity(), 2, ',', '.') ?> <?php echo $accommodation->getCurrency() ?></td>
             </tr>
 
         </table>
@@ -146,16 +206,16 @@ $payment2 = new Payment("Ostatak iznosa", "Kreditnom karticom (Visa, EC/MC, Maes
                 <th>Iznos</th>
             </tr>
             <tr>
-                <td style="text-align: left; font-weight: bold;"><?php echo $payment1->name ?></td>
-                <td><?php echo $payment1->paymentMethod ?></td>
-                <td><?php echo $payment1->paymentTime ?></td>
-                <td style="text-align: right; font-weight: bold;"><?php echo $payment1->amount ?></td>
+                <td style="text-align: left; font-weight: bold;"><?php echo $payment1->getName() ?></td>
+                <td><?php echo $payment1->getPaymentMethod() ?></td>
+                <td><?php echo $payment1->getPaymentTime() ?></td>
+                <td style="text-align: right; font-weight: bold;"><?php echo $payment1->getAmount() ?></td>
             </tr>
             <tr>
-                <td style="text-align: left; font-weight: bold;"><?php echo $payment2->name ?></td>
-                <td><?php echo $payment2->paymentMethod ?></td>
-                <td><?php echo $payment2->paymentTime ?></td>
-                <td style="text-align: right; font-weight: bold;"><?php echo $payment2->amount ?></td>
+                <td style="text-align: left; font-weight: bold;"><?php echo $payment2->getName() ?></td>
+                <td><?php echo $payment2->getPaymentMethod() ?></td>
+                <td><?php echo $payment2->getPaymentTime() ?></td>
+                <td style="text-align: right; font-weight: bold;"><?php echo $payment2->getAmount() ?></td>
             </tr>
         </table>
     </div>
